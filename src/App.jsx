@@ -8,7 +8,7 @@ function App() {
     <ResultsProvider>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Main />}></Route>
+          <Route path="/ratioShares/" element={<Main />}></Route>
         </Routes>
       </BrowserRouter>
     </ResultsProvider>
