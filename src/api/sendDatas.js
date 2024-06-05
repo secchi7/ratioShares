@@ -1,5 +1,5 @@
 import axios from "axios";
 
-const API = "http://localhost:8080/api";
+const API = "https://ratiosharesbackend.onrender.com/api";
 
 export const sendDataRequest = (share) => axios.post(`${API}/ratio`, share);
