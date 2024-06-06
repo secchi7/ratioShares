@@ -30,7 +30,7 @@ function Main() {
           <form onSubmit={onSubmit}>
             <div className="grid md:grid-cols-2 gap-4 w-full py-2">
               <div className="flex flex-col">
-                <label className="uppercase text-sm py-2">Accion 1</label>
+                <label className="text-center text-lg py-2">Acción 1</label>
                 <select
                   {...register("Share1", { required: true })}
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -45,7 +45,7 @@ function Main() {
                 </select>
               </div>
               <div className="flex flex-col">
-                <label className="uppercase text-sm py-2">Accion 2</label>
+                <label className="text-center text-lg py-2">Acción 2</label>
                 <select
                   {...register("Share2", { required: true })}
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
