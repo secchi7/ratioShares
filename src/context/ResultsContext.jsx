@@ -12,14 +12,14 @@ export const useResults = () => {
 };
 
 export const ResultsProvider = ({ children }) => {
-
   const [results, setResults] = useState([]);
   const [state,setState]=useState(false)
   const getResults = async (results) => {
     const res = await sendDataRequest(results);
     setResults(res)
     setState(true)
-  };
+    };
+  console.log(results)
   return (
     <ResultsContext.Provider value={{ getResults, results, state }}>
       {children}

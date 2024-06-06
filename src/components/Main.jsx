@@ -1,6 +1,5 @@
 import { useForm } from "react-hook-form";
 import React from "react";
-// import montian from "../assets/montain.jpg";
 import BCBA from "../assets/BCBA.jpg";
 import Plot from "react-plotly.js";
 
@@ -11,7 +10,6 @@ function Main() {
   const { register, handleSubmit } = useForm();
   const { getResults, results, state } = useResults();
 
-  // console.log(tickers.map((ticker)=>ticker.id));
   const onSubmit = handleSubmit(async (values) => {
     getResults(values);
   });
