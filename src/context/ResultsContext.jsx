@@ -19,7 +19,7 @@ export const ResultsProvider = ({ children }) => {
     setResults(res)
     setState(true)
     };
-  console.log(results)
+
   return (
     <ResultsContext.Provider value={{ getResults, results, state }}>
       {children}
