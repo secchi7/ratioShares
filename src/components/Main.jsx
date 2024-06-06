@@ -5,12 +5,13 @@ import BCBA from "../assets/BCBA.jpg";
 import Plot from "react-plotly.js";
 
 import { useResults } from "../context/ResultsContext";
+import tickers from "../assets/tickers";
 
 function Main() {
   const { register, handleSubmit } = useForm();
   const { getResults, results, state } = useResults();
 
-  console.log(results);
+  // console.log(tickers.map((ticker)=>ticker.id));
   const onSubmit = handleSubmit(async (values) => {
     getResults(values);
   });
@@ -32,31 +33,35 @@ function Main() {
                 <label className="uppercase text-sm py-2">Accion 1</label>
                 <select
                   {...register("Share1", { required: true })}
-                  // id="share1"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 >
-                  <option value="DEFAULT" selected>Choose a share</option>
-                  <option value="AAPL">AAPL</option>
-                  <option value="GOOG">GOOG</option>
-                  <option value="MSFT">MSFT</option>
-                </select>
+                  <option value="DEFAULT" selected>
+                    Seleccionar ticker
+                  </option>
 
+                  {tickers.tickers.map((ticker) => (
+                    <option value={ticker.value}>{ticker.value}</option>
+                  ))}
+                </select>
               </div>
               <div className="flex flex-col">
                 <label className="uppercase text-sm py-2">Accion 2</label>
                 <select
                   {...register("Share2", { required: true })}
-                  // id="share1"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 >
-                  <option value="DEFAULT" selected>Choose a share</option>
-                  <option value="AAPL">AAPL</option>
-                  <option value="GOOG">GOOG</option>
-                  <option value="MSFT">MSFT</option>
+                  <option value="DEFAULT" selected>
+                    Seleccionar ticker
+                  </option>
+                  {tickers.tickers.map((ticker) => (
+                    <option value={ticker.value}>{ticker.value}</option>
+                  ))}
                 </select>
               </div>
+            </div>
+            <div className="flex justify-center">
               <button
-                className="bg-[#001b5e] text-gray-100 mt-4 w-full p-4 rounded-lg"
+                className="bg-[#001b5e] text-gray-100 mt-4 max-w-[100px] w-full p-4 rounded-lg"
                 type="submit"
               >
                 Enviar
@@ -67,15 +72,19 @@ function Main() {
             {state ? (
               <>
                 <div>
-                  <h1>Gráfico</h1>
-                  <Plot
-                    data={[
-                      results.data.data[0],
-                      results.data.data[1],
-                      results.data.data[2],
-                    ]}
-                    layout={results.data.layout}
-                  />
+                  <h1 className="sn:text-4xl text-4xl text-center font-bold text-gray-800">
+                    Gráfico
+                  </h1>
+                  <div>
+                    <Plot
+                      data={[
+                        results.data.data[0],
+                        results.data.data[1],
+                        results.data.data[2],
+                      ]}
+                      layout={results.data.layout}
+                    />
+                  </div>
                 </div>
               </>
             ) : (
