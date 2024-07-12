@@ -89,10 +89,10 @@ function Main() {
                         results.data.data[2],
                       ]}
                       layout={{autosize:true}}
+                      config={{responsive:true}}
+                      className="flex h-auto w-auto"
                     />
                   </div>
-                  {console.log(results.data.data[1])}
-                  {console.log(results.data.layout)}
                 </div>
               </>
             ) : display ? (
