@@ -1,7 +1,9 @@
 import { useForm } from "react-hook-form";
 import React from "react";
+import {useState} from "react";
 import BCBA from "../assets/BCBA.jpg";
 import Plot from "react-plotly.js";
+
 
 import { useResults } from "../context/ResultsContext";
 import tickers from "../assets/tickers";
@@ -14,6 +16,7 @@ function Main() {
   const onSubmit = handleSubmit(async (values) => {
     getResults(values);
   });
+
   return (
     <div id="main">
       <img
@@ -70,37 +73,43 @@ function Main() {
               </button>
             </div>
           </form>
-          <div className="content mt-16">
+          <div className="flex w-auto content mt-16">
             {state ? (
               <>
-                <div>
+                <div flex>
                   {/* <h1 className="sn:text-4xl text-4xl text-center font-bold text-gray-800">
                     Gráfico
                   </h1> */}
                   <div>
                     <Plot
+                      divId="plotlyChart"
                       data={[
                         results.data.data[0],
                         results.data.data[1],
                         results.data.data[2],
                       ]}
-                      layout={results.data.layout}
+                      layout={{ autosize:true }}
+                      config={{ responsive: true }}
+                      useResizeHandler
+                      
                     />
                   </div>
+                  {console.log(results.data.data[1])}
+                  {console.log(results.data.layout)}
                 </div>
               </>
             ) : display ? (
               <>
-              <div>
-                  <div class="inline-flex items-center px-4 py-2 font-semibold leading-6 text-sm shadow rounded-md">
+                <div>
+                  <div className="inline-flex items-center px-4 py-2 font-semibold leading-6 text-sm shadow rounded-md">
                     <svg
-                      class="animate-spin h-20 w-20 text-white"
+                      className="animate-spin h-20 w-20 text-white"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
                     >
                       <circle
-                        class="opacity-25"
+                        className="opacity-25"
                         cx="12"
                         cy="12"
                         r="10"
@@ -108,7 +117,7 @@ function Main() {
                         stroke-width="4"
                       ></circle>
                       <path
-                        class="opacity-75"
+                        className="opacity-75"
                         fill="currentColor"
                         d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                       ></path>
@@ -118,9 +127,7 @@ function Main() {
                 </div>
               </>
             ) : (
-              <>
-              
-              </>
+              <></>
             )}
           </div>
         </div>
