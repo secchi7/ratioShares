@@ -88,7 +88,7 @@ function Main() {
                         results.data.data[1],
                         results.data.data[2],
                       ]}
-                      layout={results.data.layout}
+                      layout={{autosize:true}}
                     />
                   </div>
                   {console.log(results.data.data[1])}
