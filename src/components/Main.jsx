@@ -88,10 +88,7 @@ function Main() {
                         results.data.data[1],
                         results.data.data[2],
                       ]}
-                      layout={{ autosize:true }}
-                      config={{ responsive: true }}
-                      useResizeHandler
-                      
+                      layout={results.data.layout}
                     />
                   </div>
                   {console.log(results.data.data[1])}
